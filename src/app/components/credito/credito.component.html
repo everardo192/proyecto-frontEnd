@@ -1,0 +1,63 @@
+<!-- src/app/components/credito/credito.component.html -->
+<div class="container">
+    <h2>Créditos</h2>
+  
+    <form [formGroup]="creditoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="tipoCredito">Tipo de Crédito:</label>
+        <input id="tipoCredito" formControlName="tipoCredito" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="montoOriginal">Monto Original:</label>
+        <input id="montoOriginal" type="number" formControlName="montoOriginal" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="saldoActual">Saldo Actual:</label>
+        <input id="saldoActual" type="number" formControlName="saldoActual" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="tasaInteres">Tasa de Interés:</label>
+        <input id="tasaInteres" type="number" formControlName="tasaInteres" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="acreditado">Acreditado:</label>
+        <input id="acreditado" formControlName="acreditado" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  
+    <hr />
+  
+    <h3>Lista de Créditos</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo de Crédito</th>
+          <th>Monto Original</th>
+          <th>Saldo Actual</th>
+          <th>Tasa de Interés</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let credito of creditos">
+          <td>{{ credito.id }}</td>
+          <td>{{ credito.tipoCredito }}</td>
+          <td>{{ credito.montoOriginal }}</td>
+          <td>{{ credito.saldoActual }}</td>
+          <td>{{ credito.tasaInteres }}</td>
+          <td>
+            <button (click)="onEdit(credito)" class="btn btn-warning">Editar</button>
+            <button (click)="onDelete(credito.id!)" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <hr />
+  
+    <h3>Importar/Exportar Excel</h3>
+    <input type="file" (change)="onFileChange($event)" />
+    <button (click)="downloadExcel()" class="btn btn-success">Exportar a Excel</button>
+  </div>

@@ -1,0 +1,242 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+  
+.top-bar {
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ajustamos el espacio entre elementos */
+    background-color: #003366; /* Azul Marino */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #D9D9D9; /* Gris Claro */
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no incremente el ancho */
+    z-index: 1000; /* Ajustamos el z-index para estar sobre el contenido */
+}
+  
+.left-section {
+    display: flex;
+    align-items: center;
+}
+  
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+  
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D9D9D9; /* Gris Claro */
+}
+  
+/* Responsivo */
+@media (max-width: 768px) {
+    .logo {
+        height: 30px;
+        margin-right: 5px;
+    }
+  
+    .company-name {
+        font-size: 20px;
+    }
+}
+  
+@media (max-width: 480px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px; /* Ajuste del padding para dispositivos móviles */
+    }
+  
+    .left-section {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px; /* Espacio adicional inferior en dispositivos móviles */
+    }
+  
+    .logo {
+        height: 25px;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+  
+    .company-name {
+        font-size: 18px;
+    }
+}
+  
+/* Slide Bar*/
+.sidebar {
+    position: fixed;
+    top: 60px; /* Ajustar según la altura de la barra superior */
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #003366; /* Azul oscuro para todo el sidebar */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    color: #fff; /* Color del texto en todo el sidebar */
+}
+  
+.user-profile {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #003366; /* Azul oscuro para el fondo del perfil de usuario */
+}
+  
+.user-icon img {
+    width: 80px; /* Ajustar según el tamaño del icono */
+    height: 80px; /* Ajustar según el tamaño del icono */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+  
+.user-name {
+    font-size: 18px;
+    color: #fff; /* Color del nombre de usuario */
+}
+  
+.divider {
+    width: 80%;
+    margin: 10px auto;
+    border: 0.5px solid #004080; /* Azul oscuro más claro para la barra divisoria */
+}
+  
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+  
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+  
+.sidebar-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff; /* Color del texto en los botones del sidebar */
+    border: 1px solid transparent; /* Borde inicial transparente */
+    transition: border-color 0.3s ease; /* Transición para el cambio de color */
+}
+  
+.sidebar-menu li a:hover {
+    background-color: #002244; /* Azul aún más oscuro para el fondo al pasar el ratón */
+}
+  
+.sidebar-menu li a:active {
+    border-color: #0056b3; /* Azul más claro al hacer clic */
+}
+  
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Ancho reducido del sidebar para dispositivos móviles */
+    }
+  
+    .user-icon img {
+        width: 60px; /* Ajuste del tamaño del icono para dispositivos móviles */
+        height: 60px; /* Ajuste del tamaño del icono para dispositivos móviles */
+    }
+  
+    .user-name {
+        font-size: 16px; /* Ajuste del tamaño del nombre de usuario para dispositivos móviles */
+    }
+}
+  
+@media (max-width: 480px) {
+    .sidebar {
+        width: 150px; /* Ancho aún más reducido del sidebar para dispositivos móviles pequeños */
+    }
+  
+    .user-icon img {
+        width: 50px; /* Ajuste más pequeño del tamaño del icono para dispositivos móviles pequeños */
+        height: 50px; /* Ajuste más pequeño del tamaño del icono para dispositivos móviles pequeños */
+    }
+  
+    .user-name {
+        font-size: 14px; /* Ajuste más pequeño del tamaño del nombre de usuario para dispositivos móviles pequeños */
+    }
+}
+  
+/* Contenido del componente */
+.content {
+    margin-left: 260px; /* Deja espacio para el sidebar */
+    padding: 20px;
+    margin-top: 80px; /* Deja espacio para la barra superior */
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #003366; /* Azul marino */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo para la tabla de Información Financiera */
+.financial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 11px; /* Tamaño de fuente reducido */
+    font-family: Arial, sans-serif; /* Fuente Arial */
+    text-align: left;
+}
+
+.financial-table th, .financial-table td {
+    padding: 8px 10px; /* Ajuste del padding */
+    border: 1px solid #dddddd;
+}
+
+.financial-table th {
+    background-color: #003366; /* Azul marino */
+    color: #ffffff; /* Blanco */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.financial-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Gris claro */
+}
+
+.financial-table tr:hover {
+    background-color: #d9e2f3; /* Azul claro al pasar el ratón */
+}
+
+.financial-table td button {
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+    border: none;
+    padding: 6px 10px; /* Ajuste del padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px; /* Tamaño de fuente reducido para los botones */
+}
+
+.financial-table td button:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Estilos responsivos para la tabla */
+@media (max-width: 768px) {
+    .financial-table {
+        font-size: 10px; /* Tamaño de fuente aún más pequeño en dispositivos más pequeños */
+    }
+}
+
+@media (max-width: 480px) {
+    .financial-table {
+        font-size: 9px; /* Tamaño de fuente aún más pequeño en dispositivos pequeños */
+    }
+}

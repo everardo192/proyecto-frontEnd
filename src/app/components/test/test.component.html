@@ -1,0 +1,243 @@
+<div class="container">
+    <h1>Escoge el tipo de reporte a realizar</h1>
+    
+  <!-- Contenedor de botones -->
+  <div class="button-container">
+    <button (click)="toggleForm()">Serie R01 Catálogo mínimo</button>
+    <button (click)="toggleSecondForm()">Serie R03 Inversiones en valores</button>
+    <button (click)="toggleThirdForm()">Serie R04 Cartera de crédito</button>
+    <button (click)="toggleFourthForm()">A-0417 Calificación de la cartera de crédito</button>
+    <button (click)="toggleFifthForm()">Serie A-0419 Movimientos en la estimación preventiva para riesgos crediticios</button>
+  
+  </div>
+  
+  <!-- Formularios -->
+  <div class="form-container">
+    <!-- Formulario 1 -->
+    <div *ngIf="formVisible">
+      <form #form="ngForm" (ngSubmit)="saveForm(form.value, 'Serie R01 Catálogo mínimo')">
+        <fieldset>
+          <legend>Datos del Reporte</legend>
+          
+          <!-- Campo de periodo -->
+          <label for="periodo">Periodo:</label>
+          <input type="text" id="periodo" ngModel name="periodo" placeholder="Periodo" required />
+  
+          <!-- Campo de claveEntidad -->
+          <label for="claveEntidad">Clave Entidad:</label>
+          <input type="text" id="claveEntidad" ngModel name="claveEntidad" placeholder="Clave Entidad" required />
+  
+          <!-- Campo de reporte -->
+          <label for="reporte">Reporte:</label>
+          <input type="text" id="reporte" ngModel name="reporte" placeholder="Reporte" required />
+  
+          <!-- Otros campos de IdentificadorReporte -->
+          <label for="claveInstitucion">Clave Institución:</label>
+          <input type="text" id="claveInstitucion" ngModel name="claveInstitucion" placeholder="Clave Institución" />
+  
+          <label for="claveFederacion">Clave Federación:</label>
+          <input type="text" id="claveFederacion" ngModel name="claveFederacion" placeholder="Clave Federación" />
+  
+          <label for="claveNivel">Clave Nivel:</label>
+          <input type="text" id="claveNivel" ngModel name="claveNivel" placeholder="Clave Nivel" />
+  
+          <label for="numeroSubsidiarias">Número de Subsidiarias:</label>
+          <input type="text" id="numeroSubsidiarias" ngModel name="numeroSubsidiarias" placeholder="Número Subsidiarias" />
+        </fieldset>
+  
+        <fieldset>
+          <legend>Datos de Información Financiera</legend>
+          
+          <!-- Campo de concepto -->
+          <label for="concepto1">Concepto:</label>
+          <input type="text" id="concepto1" ngModel name="concepto1" placeholder="Concepto" required />
+  
+          <!-- Campo de moneda -->
+          <label for="moneda1">Moneda:</label>
+          <input type="text" id="moneda1" ngModel name="moneda1" placeholder="Moneda" required />
+  
+          <!-- Campo de dato -->
+          <label for="dato1">Dato:</label>
+          <input type="text" id="dato1" ngModel name="dato1" placeholder="Dato" required />
+  
+          <!-- Otros campos adicionales según tu necesidad -->
+          <label for="descripcion">Descripción:</label>
+          <input type="text" id="descripcion" ngModel name="descripcion" placeholder="Descripción" />
+        </fieldset>
+        
+        <!-- Botón para enviar el formulario -->
+        <button type="submit" class="save-button">Guardar</button>
+      </form>
+    </div>
+  
+    <!-- Formulario 2 -->
+    <div *ngIf="secondFormVisible">
+      <form #secondForm="ngForm" (ngSubmit)="saveForm(secondForm.value, 'Serie R02 Reporte de Créditos')">
+        <fieldset>
+          <legend>Datos del Reporte</legend>
+          
+          <!-- Campo de periodo -->
+          <label for="periodo2">Periodo:</label>
+          <input type="text" id="periodo2" ngModel name="periodo" placeholder="Periodo" required />
+  
+          <!-- Campo de claveEntidad -->
+          <label for="claveEntidad2">Clave Entidad:</label>
+          <input type="text" id="claveEntidad2" ngModel name="claveEntidad" placeholder="Clave Entidad" required />
+  
+          <!-- Campo de reporte -->
+          <label for="reporte2">Reporte:</label>
+          <input type="text" id="reporte2" ngModel name="reporte" placeholder="Reporte" required />
+  
+          <!-- Otros campos de IdentificadorReporte -->
+          <label for="claveInstitucion2">Clave Institución:</label>
+          <input type="text" id="claveInstitucion2" ngModel name="claveInstitucion" placeholder="Clave Institución" />
+  
+          <label for="claveFederacion2">Clave Federación:</label>
+          <input type="text" id="claveFederacion2" ngModel name="claveFederacion" placeholder="Clave Federación" />
+  
+          <label for="claveNivel2">Clave Nivel:</label>
+          <input type="text" id="claveNivel2" ngModel name="claveNivel" placeholder="Clave Nivel" />
+  
+          <label for="numeroSubsidiarias2">Número de Subsidiarias:</label>
+          <input type="text" id="numeroSubsidiarias2" ngModel name="numeroSubsidiarias" placeholder="Número Subsidiarias" />
+        </fieldset>
+  
+        <fieldset>
+          <legend>Datos de Identificador Inversiones</legend>
+          
+          <!-- Campo de entidadInversion -->
+          <label for="entidadInversion">Entidad Inversión:</label>
+          <input type="text" id="entidadInversion" ngModel name="entidadInversion" placeholder="Entidad Inversión" required />
+  
+          <!-- Campo de emisora -->
+          <label for="emisora">Emisora:</label>
+          <input type="text" id="emisora" ngModel name="emisora" placeholder="Emisora" required />
+  
+          <!-- Campo de serie -->
+          <label for="serie">Serie:</label>
+          <input type="text" id="serie" ngModel name="serie" placeholder="Serie" />
+  
+          <!-- Campo de tipoValor -->
+          <label for="tipoValor">Tipo Valor:</label>
+          <input type="text" id="tipoValor" ngModel name="tipoValor" placeholder="Tipo Valor" />
+  
+          <!-- Campo de formaAdquisicion -->
+          <label for="formaAdquisicion">Forma Adquisición:</label>
+          <input type="text" id="formaAdquisicion" ngModel name="formaAdquisicion" placeholder="Forma Adquisición" />
+  
+          <!-- Campo de tipoInversion -->
+          <label for="tipoInversion">Tipo Inversión:</label>
+          <input type="text" id="tipoInversion" ngModel name="tipoInversion" placeholder="Tipo Inversión" />
+  
+          <!-- Campo de tipoInstrumento -->
+          <label for="tipoInstrumento">Tipo Instrumento:</label>
+          <input type="text" id="tipoInstrumento" ngModel name="tipoInstrumento" placeholder="Tipo Instrumento" />
+  
+          <!-- Campo de clasificacionContable -->
+          <label for="clasificacionContable">Clasificación Contable:</label>
+          <input type="text" id="clasificacionContable" ngModel name="clasificacionContable" placeholder="Clasificación Contable" />
+  
+          <!-- Campo de fechaContratacion -->
+          <label for="fechaContratacion">Fecha Contratación:</label>
+          <input type="text" id="fechaContratacion" ngModel name="fechaContratacion" placeholder="Fecha Contratación" />
+  
+          <!-- Campo de fechaVencimiento -->
+          <label for="fechaVencimiento">Fecha Vencimiento:</label>
+          <input type="text" id="fechaVencimiento" ngModel name="fechaVencimiento" placeholder="Fecha Vencimiento" />
+        </fieldset>
+        
+        <!-- Botón para enviar el formulario -->
+        <button type="submit" class="save-button">Guardar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Tercer formulario: Serie R04 Cartera de crédito -->
+  <div *ngIf="thirdFormVisible">
+    <form #thirdForm="ngForm" (ngSubmit)="saveForm(thirdForm.value, 'Serie R04 Cartera de crédito')">
+      <h3>Serie R04 Cartera de crédito</h3>
+      
+      <label for="periodo">Periodo:</label>
+      <input id="periodo" name="periodo" ngModel />
+  
+      <label for="claveEntidad">Clave Entidad:</label>
+      <input id="claveEntidad" name="claveEntidad" ngModel />
+  
+      <div>
+        <h4>Información Financiera</h4>
+  
+        <label for="concepto">Concepto:</label>
+        <input id="concepto" name="concepto" ngModel />
+  
+        <label for="reporte">Reporte:</label>
+        <input id="reporte" name="reporte" ngModel />
+  
+        <label for="moneda">Moneda:</label>
+        <input id="moneda" name="moneda" ngModel />
+  
+        <label for="tipoCartera">Tipo Cartera:</label>
+        <input id="tipoCartera" name="tipoCartera" ngModel />
+  
+        <label for="tipoSaldo">Tipo Saldo:</label>
+        <input id="tipoSaldo" name="tipoSaldo" ngModel />
+  
+        <label for="dato">Dato:</label>
+        <input id="dato" name="dato" ngModel />
+      </div>
+  
+      <button type="submit" class="save-button">Guardar</button>
+    </form>
+  </div>
+  <!-- Cuarto formulario: Serie A-0417 Calificación de la cartera de crédito y estimación preventiva para riesgos crediticios -->
+  <div *ngIf="fourthFormVisible">
+    <form #fourthForm="ngForm" (ngSubmit)="saveForm(fourthForm.value, 'A-0417 Calificación de la cartera de crédito')">
+      <h3>A-0417 Calificación de la cartera de crédito y estimación preventiva para riesgos crediticios</h3>
+      <label for="periodoA0417">Periodo:</label>
+      <input id="periodoA0417" name="periodoA0417" ngModel /><br />
+      <label for="claveEntidadA0417">Clave Entidad:</label>
+      <input id="claveEntidadA0417" name="claveEntidadA0417" ngModel /><br />
+      <fieldset>
+        <legend>Información Financiera</legend>
+        <label for="conceptoA0417">Concepto:</label>
+        <input id="conceptoA0417" name="conceptoA0417" ngModel /><br />
+        <label for="reporteA0417">Reporte:</label>
+        <input id="reporteA0417" name="reporteA0417" ngModel /><br />
+        <label for="monedaA0417">Moneda:</label>
+        <input id="monedaA0417" name="monedaA0417" ngModel /><br />
+        <label for="tipoCarteraA0417">Tipo Cartera:</label>
+        <input id="tipoCarteraA0417" name="tipoCarteraA0417" ngModel /><br />
+        <label for="tipoSaldoA0417">Tipo Saldo:</label>
+        <input id="tipoSaldoA0417" name="tipoSaldoA0417" ngModel /><br />
+        <label for="datoA0417">Dato:</label>
+        <input id="datoA0417" name="datoA0417" ngModel /><br />
+      </fieldset>
+      <button type="submit" class="save-button">Guardar</button>
+    </form>
+  </div>
+  <!-- Quinto formulario: Serie A-0419 Movimientos en la estimación preventiva para riesgos crediticios -->
+  <div *ngIf="fifthFormVisible">
+    <form #fifthForm="ngForm" (ngSubmit)="saveForm(fifthForm.value, 'A-0419 Movimientos en la estimación preventiva para riesgos crediticios')">
+      <h3>A-0419 Movimientos en la estimación preventiva para riesgos crediticios</h3>
+      <label for="periodoA0419">Periodo:</label>
+      <input id="periodoA0419" name="periodoA0419" ngModel /><br>
+      <label for="claveEntidadA0419">Clave Entidad:</label>
+      <input id="claveEntidadA0419" name="claveEntidadA0419" ngModel /><br>
+      <!-- Información Financiera -->
+      <h4>Información Financiera</h4>
+      <div>
+        <label for="conceptoA0419">Concepto:</label>
+        <input id="conceptoA0419" name="conceptoA0419" ngModel /><br>
+        <label for="reporteA0419">Reporte:</label>
+        <input id="reporteA0419" name="reporteA0419" ngModel /><br>
+        <label for="monedaA0419">Moneda:</label>
+        <input id="monedaA0419" name="monedaA0419" ngModel /><br>
+        <label for="tipoCarteraA0419">Tipo Cartera:</label>
+        <input id="tipoCarteraA0419" name="tipoCarteraA0419" ngModel /><br>
+        <label for="tipoSaldoA0419">Tipo Saldo:</label>
+        <input id="tipoSaldoA0419" name="tipoSaldoA0419" ngModel /><br>
+        <label for="datoA0419">Dato:</label>
+        <input id="datoA0419" name="datoA0419" ngModel /><br>
+      </div>
+      <button type="submit" class="save-button">Guardar</button>
+    </form>
+  </div>

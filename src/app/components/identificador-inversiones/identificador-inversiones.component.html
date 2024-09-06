@@ -1,0 +1,48 @@
+<div class="content">
+    <h2 class="section-title">Identificador de Inversiones</h2>
+  
+    <div class="table-container">
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Entidad Inversión</th>
+            <th>Emisora</th>
+            <th>Serie</th>
+            <th>Tipo Valor</th>
+            <th>Forma Adquisición</th>
+            <th>Tipo Inversión</th>
+            <th>Tipo Instrumento</th>
+            <th>Clasificación Contable</th>
+            <th>Fecha Contratación</th>
+            <th>Fecha Vencimiento</th>
+            <th>Periodo Reporte</th>
+            <th>Clave Entidad Reporte</th>
+            <th>Reporte</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inversion of inversiones">
+            <td>{{ inversion.id }}</td>
+            <td>{{ inversion.entidadInversion }}</td>
+            <td>{{ inversion.emisora }}</td>
+            <td>{{ inversion.serie }}</td>
+            <td>{{ inversion.tipoValor }}</td>
+            <td>{{ inversion.formaAdquisicion }}</td>
+            <td>{{ inversion.tipoInversion }}</td>
+            <td>{{ inversion.tipoInstrumento }}</td>
+            <td>{{ inversion.clasificacionContable }}</td>
+            <td>{{ inversion.fechaContratacion }}</td>
+            <td>{{ inversion.fechaVencimiento }}</td>
+            <td>{{ inversion.identificadorReporte_periodo }}</td>
+            <td>{{ inversion.identificadorReporte_claveEntidad }}</td>
+            <td>{{ inversion.identificadorReporte_reporte }}</td>
+            <td>
+              <button (click)="deleteInversion(inversion.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <!-- Formulario para agregar o editar IdentificadorReporte -->
+  <form (ngSubmit)="saveOrUpdateIdentificadorReporte()">
+    <div class="form-group">
+      <label for="periodo">Periodo:</label>
+      <input type="text" id="periodo" [(ngModel)]="identificadorReporte.periodo" name="periodo" required>
+    </div>
+    <div class="form-group">
+      <label for="claveEntidad">Clave Entidad:</label>
+      <input type="text" id="claveEntidad" [(ngModel)]="identificadorReporte.claveEntidad" name="claveEntidad" required>
+    </div>
+    <div class="form-group">
+      <label for="reporte">Reporte:</label>
+      <input type="number" id="reporte" [(ngModel)]="identificadorReporte.reporte" name="reporte" required>
+    </div>
+    <div class="form-group">
+      <label for="claveInstitucion">Clave Institucion:</label>
+      <input type="text" id="claveInstitucion" [(ngModel)]="identificadorReporte.claveInstitucion" name="claveInstitucion">
+    </div>
+    <div class="form-group">
+      <label for="claveFederacion">Clave Federacion:</label>
+      <input type="number" id="claveFederacion" [(ngModel)]="identificadorReporte.claveFederacion" name="claveFederacion">
+    </div>
+    <div class="form-group">
+      <label for="claveNivel">Clave Nivel:</label>
+      <input type="number" id="claveNivel" [(ngModel)]="identificadorReporte.claveNivel" name="claveNivel">
+    </div>
+    <div class="form-group">
+      <label for="numeroSubsidiarias">Numero Subsidiarias:</label>
+      <input type="number" id="numeroSubsidiarias" [(ngModel)]="identificadorReporte.numeroSubsidiarias" name="numeroSubsidiarias">
+    </div>
+    <button type="submit">{{ isUpdateMode ? 'Actualizar' : 'Agregar' }}</button>
+  </form>
+
+  <!-- Tabla para mostrar IdentificadorReportes -->
+  <table *ngIf="identificadorReportes.length > 0">
+    <thead>
+      <tr>
+        <th>Periodo</th>
+        <th>Clave Entidad</th>
+        <th>Reporte</th>
+        <th>Clave Institucion</th>
+        <th>Clave Federacion</th>
+        <th>Clave Nivel</th>
+        <th>Numero Subsidiarias</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reporte of identificadorReportes">
+        <td>{{ reporte.periodo }}</td>
+        <td>{{ reporte.claveEntidad }}</td>
+        <td>{{ reporte.reporte }}</td>
+        <td>{{ reporte.claveInstitucion }}</td>
+        <td>{{ reporte.claveFederacion }}</td>
+        <td>{{ reporte.claveNivel }}</td>
+        <td>{{ reporte.numeroSubsidiarias }}</td>
+        <td>
+          <button (click)="editIdentificadorReporte(reporte)">Editar</button>
+          <button (click)="deleteIdentificadorReporte(reporte.id!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

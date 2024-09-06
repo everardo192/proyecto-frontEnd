@@ -1,0 +1,135 @@
+<div class="container">
+  <h2>Gestión de Identificadores Acreditados</h2>
+
+  <form [formGroup]="identificadorAcreditadoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="noCliente">No. Cliente</label>
+      <input id="noCliente" formControlName="noCliente" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="tipoCliente">Tipo Cliente</label>
+      <input id="tipoCliente" formControlName="tipoCliente" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="nombres">Nombres</label>
+      <input id="nombres" formControlName="nombres" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="aPaterno">Apellido Paterno</label>
+      <input id="aPaterno" formControlName="aPaterno" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="aMaterno">Apellido Materno</label>
+      <input id="aMaterno" formControlName="aMaterno" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="pJuridica">Persona Jurídica</label>
+      <input id="pJuridica" formControlName="pJuridica" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="grupoRiesgo">Grupo de Riesgo</label>
+      <input id="grupoRiesgo" formControlName="grupoRiesgo" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="actEconomicaAcreditado">Actividad Económica</label>
+      <input id="actEconomicaAcreditado" formControlName="actEconomicaAcreditado" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="nacionalidad">Nacionalidad</label>
+      <input id="nacionalidad" formControlName="nacionalidad" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="fechaNacimiento">Fecha de Nacimiento</label>
+      <input id="fechaNacimiento" type="date" formControlName="fechaNacimiento" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="rfc">RFC</label>
+      <input id="rfc" formControlName="rfc" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="curp">CURP</label>
+      <input id="curp" formControlName="curp" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="genero">Género</label>
+      <input id="genero" formControlName="genero" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="calle">Calle</label>
+      <input id="calle" formControlName="calle" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="noExterior">No. Exterior</label>
+      <input id="noExterior" formControlName="noExterior" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="colonia">Colonia</label>
+      <input id="colonia" formControlName="colonia" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="cp">Código Postal</label>
+      <input id="cp" formControlName="cp" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="localidad">Localidad</label>
+      <input id="localidad" formControlName="localidad" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <input id="estado" formControlName="estado" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="municipio">Municipio</label>
+      <input id="municipio" formControlName="municipio" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="pais">País</label>
+      <input id="pais" formControlName="pais" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="tipoAcreditado">Tipo Acreditado</label>
+      <input id="tipoAcreditado" formControlName="tipoAcreditado" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="consultasSIC">Consultas SIC</label>
+      <input id="consultasSIC" formControlName="consultasSIC" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="ingresos">Ingresos</label>
+      <input id="ingresos" formControlName="ingresos" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="tamaño">Tamaño</label>
+      <input id="tamaño" formControlName="tamaño" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+
+  <hr />
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>No. Cliente</th>
+        <th>Tipo Cliente</th>
+        <th>Nombres</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let identificador of identificadorAcreditadoList">
+        <td>{{ identificador.noCliente }}</td>
+        <td>{{ identificador.tipoCliente }}</td>
+        <td>{{ identificador.nombres }}</td>
+        <td>{{ identificador.aPaterno }}</td>
+        <td>{{ identificador.aMaterno }}</td>
+        <td>
+          <button (click)="onEdit(identificador)" class="btn btn-warning">Editar</button>
+          <button (click)="onDelete(identificador.noCliente)" class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

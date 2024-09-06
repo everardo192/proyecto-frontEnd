@@ -1,0 +1,75 @@
+<!-- Este es la barra de navegacion -->
+<div class="top-bar">
+    <div class="left-section">
+      <img src="https://media.istockphoto.com/id/1267470630/es/vector/fast-coin-logo-dise%C3%B1a-el-vector-conceptual-la-plantilla-de-logotipo-fast-cash-los-dise%C3%B1os-de.jpg?s=612x612&w=0&k=20&c=jyZvfvEMLzt8EFdt4CPlJa0X8Ian6GzPg9Em7P_aRwM=" alt="Logo de LKS Baas Financiera" class="logo">
+      <span class="company-name">LKS Baas Financiera</span>
+    </div>
+  </div>
+  
+  <!-- Este es el slide bar -->
+  <div class="sidebar">
+    <div class="user-profile">
+      <div class="user-icon">
+        <img src="https://media.istockphoto.com/id/1300845620/es/vector/icono-de-usuario-plano-aislado-sobre-fondo-blanco-s%C3%ADmbolo-de-usuario-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=grBa1KTwfoWBOqu1n0ewyRXQnx59bNHtHjvbsFc82gk=" alt="Icono de usuario">
+      </div>
+      <div class="user-name">
+        Usuario
+      </div>
+      <hr class="divider">
+    </div>
+    <ul class="sidebar-menu">
+      <li><a routerLink="/generateReport">Generar Reporte Regulatorio</a></li>
+      <li><a routerLink="/bitacoraReport">Bitácora Reporte Regulatorio</a></li>
+      <li><a routerLink="/adminReporte">Alta, Baja Cambios a un Reporte Regulatorio</a></li>
+      <li><a routerLink="/usersModule">Usuarios del Módulo</a></li> <!-- Asumí que "/usersModule" es la ruta deseada -->
+    </ul>    
+  </div>
+  
+  <!-- Aqui va el contenido del componente -->
+  <div class="content">
+    <div class="usuarios-container">
+      <header class="usuarios-header">
+        <h1>Usuarios del Módulo</h1>
+        <div class="usuarios-filters">
+          <label for="search-user">Buscar Usuario:</label>
+          <input type="text" id="search-user" placeholder="Nombre de usuario">
+          <button class="btn btn-search">Buscar</button>
+          <button class="btn btn-add">Agregar Nuevo Usuario</button>
+        </div>
+      </header>
+  
+      <main class="usuarios-table-container">
+        <table class="usuarios-table">
+          <thead>
+            <tr>
+              <th>ID Usuario</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Juan Pérez</td>
+              <td>juan.perezexample.com</td>
+              <td>Administrador</td>
+              <td>
+                <button class="btn btn-view">Ver</button>
+                <button class="btn btn-edit">Editar</button>
+                <button class="btn btn-delete">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+  
+      <footer class="usuarios-footer">
+        <div class="pagination">
+          <!-- Paginación aquí -->
+        </div>
+      </footer>
+    </div>
+  </div>
+    

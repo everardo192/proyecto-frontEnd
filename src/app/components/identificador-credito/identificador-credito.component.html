@@ -1,0 +1,101 @@
+<div class="container">
+    <!-- Formulario para agregar o editar IdentificadorCredito -->
+    <form (ngSubmit)="saveOrUpdateIdentificadorCredito()">
+      <div class="form-group">
+        <label for="ideCredito">ID Crédito:</label>
+        <input type="text" id="ideCredito" [(ngModel)]="identificadorCredito.ideCredito" name="ideCredito" required>
+      </div>
+      <div class="form-group">
+        <label for="ideLineaCredito">ID Línea Crédito:</label>
+        <input type="text" id="ideLineaCredito" [(ngModel)]="identificadorCredito.ideLineaCredito" name="ideLineaCredito" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaOtorgamiento">Fecha Otorgamiento:</label>
+        <input type="text" id="fechaOtorgamiento" [(ngModel)]="identificadorCredito.fechaOtorgamiento" name="fechaOtorgamiento" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoAlta">Tipo Alta:</label>
+        <input type="number" id="tipoAlta" [(ngModel)]="identificadorCredito.tipoAlta" name="tipoAlta" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoCartera">Tipo Cartera:</label>
+        <input type="number" id="tipoCartera" [(ngModel)]="identificadorCredito.tipoCartera" name="tipoCartera" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoProducto">Tipo Producto:</label>
+        <input type="text" id="tipoProducto" [(ngModel)]="identificadorCredito.tipoProducto" name="tipoProducto">
+      </div>
+      <div class="form-group">
+        <label for="destinoCredito">Destino Crédito:</label>
+        <input type="number" id="destinoCredito" [(ngModel)]="identificadorCredito.destinoCredito" name="destinoCredito">
+      </div>
+      <div class="form-group">
+        <label for="claveSucursal">Clave Sucursal:</label>
+        <input type="text" id="claveSucursal" [(ngModel)]="identificadorCredito.claveSucursal" name="claveSucursal">
+      </div>
+      <div class="form-group">
+        <label for="noCuenta">No Cuenta:</label>
+        <input type="text" id="noCuenta" [(ngModel)]="identificadorCredito.noCuenta" name="noCuenta">
+      </div>
+      <div class="form-group">
+        <label for="noContrato">No Contrato:</label>
+        <input type="text" id="noContrato" [(ngModel)]="identificadorCredito.noContrato" name="noContrato">
+      </div>
+      <div class="form-group">
+        <label for="nombreFactorado">Nombre Factorado:</label>
+        <input type="text" id="nombreFactorado" [(ngModel)]="identificadorCredito.nombreFactorado" name="nombreFactorado">
+      </div>
+      <div class="form-group">
+        <label for="rfcFactorado">RFC Factorado:</label>
+        <input type="text" id="rfcFactorado" [(ngModel)]="identificadorCredito.rfcFactorado" name="rfcFactorado">
+      </div>
+      <div class="form-group">
+        <label for="noCliente">No Cliente:</label>
+        <input type="text" id="noCliente" [(ngModel)]="identificadorCredito.noCliente" name="noCliente">
+      </div>
+      <button type="submit">{{ isUpdateMode ? 'Actualizar' : 'Agregar' }}</button>
+    </form>
+  
+    <!-- Tabla para mostrar IdentificadorCreditos -->
+    <table *ngIf="identificadorCreditos.length > 0">
+      <thead>
+        <tr>
+          <th>ID Crédito</th>
+          <th>ID Línea Crédito</th>
+          <th>Fecha Otorgamiento</th>
+          <th>Tipo Alta</th>
+          <th>Tipo Cartera</th>
+          <th>Tipo Producto</th>
+          <th>Destino Crédito</th>
+          <th>Clave Sucursal</th>
+          <th>No Cuenta</th>
+          <th>No Contrato</th>
+          <th>Nombre Factorado</th>
+          <th>RFC Factorado</th>
+          <th>No Cliente</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let credito of identificadorCreditos">
+          <td>{{ credito.ideCredito }}</td>
+          <td>{{ credito.ideLineaCredito }}</td>
+          <td>{{ credito.fechaOtorgamiento }}</td>
+          <td>{{ credito.tipoAlta }}</td>
+          <td>{{ credito.tipoCartera }}</td>
+          <td>{{ credito.tipoProducto }}</td>
+          <td>{{ credito.destinoCredito }}</td>
+          <td>{{ credito.claveSucursal }}</td>
+          <td>{{ credito.noCuenta }}</td>
+          <td>{{ credito.noContrato }}</td>
+          <td>{{ credito.nombreFactorado }}</td>
+          <td>{{ credito.rfcFactorado }}</td>
+          <td>{{ credito.noCliente }}</td>
+          <td>
+            <button (click)="editIdentificadorCredito(credito)">Editar</button>
+            <button (click)="deleteIdentificadorCredito(credito.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

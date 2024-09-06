@@ -1,0 +1,89 @@
+<!-- src/app/components/variables-financieras/variables-financieras.component.html -->
+
+<div>
+  <h2>Gestión de Variables Financieras</h2>
+
+  <!-- Formulario para crear o editar una Variable Financiera -->
+  <form [formGroup]="form" (ngSubmit)="saveVariablesFinancieras()">
+    <div>
+      <label for="noTitulo">No. Título:</label>
+      <input id="noTitulo" formControlName="noTitulo" type="number">
+    </div>
+
+    <div>
+      <label for="costoAdquisitivo">Costo Adquisitivo:</label>
+      <input id="costoAdquisitivo" formControlName="costoAdquisitivo" type="number">
+    </div>
+
+    <div>
+      <label for="tasaInt">Tasa de Interés:</label>
+      <input id="tasaInt" formControlName="tasaInt" type="number">
+    </div>
+
+    <div>
+      <label for="grupoRiesgo">Grupo de Riesgo:</label>
+      <input id="grupoRiesgo" formControlName="grupoRiesgo" type="number">
+    </div>
+
+    <div>
+      <label for="valoracionDirecta">Valoración Directa:</label>
+      <input id="valoracionDirecta" formControlName="valoracionDirecta" type="number">
+    </div>
+
+    <div>
+      <label for="resultadoValuacion">Resultado de Valuación:</label>
+      <input id="resultadoValuacion" formControlName="resultadoValuacion" type="number">
+    </div>
+
+    <div>
+      <label for="identificadorCredito">Identificador Crédito:</label>
+      <input id="identificadorCredito" formControlName="identificadorCredito" type="text">
+    </div>
+
+    <div>
+      <label for="identificadorLineaCredito">Identificador Línea Crédito:</label>
+      <input id="identificadorLineaCredito" formControlName="identificadorLineaCredito" type="text">
+    </div>
+
+    <div>
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="resetForm()">Cancelar</button>
+    </div>
+  </form>
+
+  <!-- Tabla que muestra las Variables Financieras -->
+  <h3>Lista de Variables Financieras</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>No. Título</th>
+        <th>Costo Adquisitivo</th>
+        <th>Tasa de Interés</th>
+        <th>Grupo de Riesgo</th>
+        <th>Valoración Directa</th>
+        <th>Resultado de Valuación</th>
+        <th>Identificador Crédito</th>
+        <th>Identificador Línea Crédito</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let variable of variablesFinancierasList">
+        <td>{{ variable.id }}</td>
+        <td>{{ variable.noTitulo }}</td>
+        <td>{{ variable.costoAdquisitivo }}</td>
+        <td>{{ variable.tasaInt }}</td>
+        <td>{{ variable.grupoRiesgo }}</td>
+        <td>{{ variable.valoracionDirecta }}</td>
+        <td>{{ variable.resultadoValuacion }}</td>
+        <td>{{ variable.identificadorCredito }}</td>
+        <td>{{ variable.identificadorLineaCredito }}</td>
+        <td>
+          <button (click)="selectVariable(variable)">Editar</button>
+          <button *ngIf="variable.id !== undefined" (click)="deleteVariable(variable.id!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

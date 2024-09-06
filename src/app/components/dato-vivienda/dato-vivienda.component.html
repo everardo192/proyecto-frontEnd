@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- Formulario para insertar/editar DatoVivienda -->
+  <form [formGroup]="datoViviendaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="valorVivienda">Valor Vivienda:</label>
+      <input id="valorVivienda" formControlName="valorVivienda" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="valorInmueble">Valor Inmueble:</label>
+      <input id="valorInmueble" formControlName="valorInmueble" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="noAvaluo">No Avalúo:</label>
+      <input id="noAvaluo" formControlName="noAvaluo" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="loan">Loan:</label>
+      <input id="loan" formControlName="loan" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="identificadorCredito">Identificador Crédito:</label>
+      <select id="identificadorCredito" formControlName="identificadorCreditoId" class="form-control">
+        <option *ngFor="let credito of identificadorCreditos" [value]="credito.id">{{ credito.descripcion }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+
+  <!-- Tabla para mostrar los DatoVivienda -->
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Valor Vivienda</th>
+        <th>Valor Inmueble</th>
+        <th>No Avalúo</th>
+        <th>Loan</th>
+        <th>Identificador Crédito</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dato of datoViviendas">
+        <td>{{ dato.id }}</td>
+        <td>{{ dato.valorVivienda }}</td>
+        <td>{{ dato.valorInmueble }}</td>
+        <td>{{ dato.noAvaluo }}</td>
+        <td>{{ dato.loan }}</td>
+        <td>{{ dato.credito?.descripcion }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editDatoVivienda(dato.id)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteDatoVivienda(dato.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

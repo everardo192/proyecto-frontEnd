@@ -1,0 +1,132 @@
+<!-- Formulario para crear/editar condiciones financieras -->
+<form (ngSubmit)="isEditing ? updateCondicion() : createCondicion()">
+  <div>
+    <label>Monto Pesos:</label>
+    <input [(ngModel)]="condicion.montoPesos" name="montoPesos" required />
+  </div>
+  <div>
+    <label>Monto Moneda Origen:</label>
+    <input [(ngModel)]="condicion.montoMonedaOrigen" name="montoMonedaOrigen" required />
+  </div>
+  <div>
+    <label>Fecha Disposición:</label>
+    <input [(ngModel)]="condicion.fechaDisposicion" name="fechaDisposicion" required />
+  </div>
+  <div>
+    <label>Fecha Vencimiento:</label>
+    <input [(ngModel)]="condicion.fechaVencimiento" name="fechaVencimiento" required />
+  </div>
+  <div>
+    <label>Forma Adquisición:</label>
+    <input [(ngModel)]="condicion.formaAdquisicion" name="formaAdquisicion" required />
+  </div>
+
+  <!-- Campos faltantes -->
+  <div>
+    <label>Tasa de Interés:</label>
+    <input [(ngModel)]="condicion.tasaInteres" name="tasaInteres" required />
+  </div>
+  <div>
+    <label>Diferencia de Tasa:</label>
+    <input [(ngModel)]="condicion.diferenciaTasa" name="diferenciaTasa" required />
+  </div>
+  <div>
+    <label>Operación Tasa:</label>
+    <input [(ngModel)]="condicion.operacionTasa" name="operacionTasa" required />
+  </div>
+  <div>
+    <label>Tipo de Moneda:</label>
+    <input [(ngModel)]="condicion.tipoMoneda" name="tipoMoneda" required />
+  </div>
+  <div>
+    <label>Periodo Pagos Capital:</label>
+    <input [(ngModel)]="condicion.periodoPagosCapital" name="periodoPagosCapital" required />
+  </div>
+  <div>
+    <label>Periodo Pagos Intereses:</label>
+    <input [(ngModel)]="condicion.periodoPagosInteres" name="periodoPagosInteres" required />
+  </div>
+  <div>
+    <label>Periodo Facturación:</label>
+    <input [(ngModel)]="condicion.periodoFacturacion" name="periodoFacturacion" required />
+  </div>
+  <div>
+    <label>Comisión A (Tasa):</label>
+    <input [(ngModel)]="condicion.comisionATasa" name="comisionATasa" required />
+  </div>
+  <div>
+    <label>Comisión A (Monto):</label>
+    <input [(ngModel)]="condicion.comisionAMonto" name="comisionAMonto" required />
+  </div>
+  <div>
+    <label>Comisión D (Tasa):</label>
+    <input [(ngModel)]="condicion.comisionDTasa" name="comisionDTasa" required />
+  </div>
+  <div>
+    <label>Comisión D (Monto):</label>
+    <input [(ngModel)]="condicion.comisionDMonto" name="comisionDMonto" required />
+  </div>
+  <div>
+    <label>Identificador Crédito:</label>
+    <input [(ngModel)]="condicion.identificadorCredito" name="identificadorCredito" />
+  </div>
+
+  <button type="submit">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+
+    <!-- Agrega los otros campos del formulario aquí -->
+    <button type="submit">{{ isEditing ? 'Actualizar' : 'Crear' }}</button>
+  </form>
+  
+  <!-- Tabla para mostrar las condiciones financieras -->
+  <table *ngIf="condiciones.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Monto Pesos</th>
+        <th>Monto Moneda Origen</th>
+        <th>Fecha Disposición</th>
+        <th>Fecha Vencimiento</th>
+        <th>Forma Adquisición</th>
+        <th>Tasa de Interés</th>
+        <th>Diferencia de Tasa</th>
+        <th>Operación Tasa</th>
+        <th>Tipo de Moneda</th>
+        <th>Periodo Pagos Capital</th>
+        <th>Periodo Pagos Intereses</th>
+        <th>Periodo Facturación</th>
+        <th>Comisión A (Tasa)</th>
+        <th>Comisión A (Monto)</th>
+        <th>Comisión D (Tasa)</th>
+        <th>Comisión D (Monto)</th>
+        <th>Identificador Crédito</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cond of condiciones">
+        <td>{{ cond.id }}</td>
+        <td>{{ cond.montoPesos }}</td>
+        <td>{{ cond.montoMonedaOrigen }}</td>
+        <td>{{ cond.fechaDisposicion }}</td>
+        <td>{{ cond.fechaVencimiento }}</td>
+        <td>{{ cond.formaAdquisicion }}</td>
+        <td>{{ cond.tasaInteres }}</td>
+        <td>{{ cond.diferenciaTasa }}</td>
+        <td>{{ cond.operacionTasa }}</td>
+        <td>{{ cond.tipoMoneda }}</td>
+        <td>{{ cond.periodoPagosCapital }}</td>
+        <td>{{ cond.periodoPagosInteres }}</td>
+        <td>{{ cond.periodoFacturacion }}</td>
+        <td>{{ cond.comisionATasa }}</td>
+        <td>{{ cond.comisionAMonto }}</td>
+        <td>{{ cond.comisionDTasa }}</td>
+        <td>{{ cond.comisionDMonto }}</td>
+        <td>{{ cond.identificadorCredito }}</td>
+        <td>
+          <button (click)="editCondicion(cond.id!)">Editar</button>
+          <button (click)="deleteCondicion(cond.id!)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="condiciones.length === 0">No hay condiciones financieras disponibles.</p>

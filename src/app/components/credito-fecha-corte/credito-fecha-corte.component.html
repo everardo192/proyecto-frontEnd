@@ -1,0 +1,37 @@
+<div>
+    <form [formGroup]="creditoFechaCorteForm" (ngSubmit)="onSubmit()">
+      <label for="fechaCorte">Fecha de Corte:</label>
+      <input id="fechaCorte" formControlName="fechaCorte" type="text" />
+      
+      <label for="montoInsoluto">Monto Insoluto:</label>
+      <input id="montoInsoluto" formControlName="montoInsoluto" type="number" />
+  
+      <label for="saldoInsoluto">Saldo Insoluto:</label>
+      <input id="saldoInsoluto" formControlName="saldoInsoluto" type="number" />
+  
+      <label for="pagoAmortizacion">Pago Amortización:</label>
+      <input id="pagoAmortizacion" formControlName="pagoAmortizacion" type="number" />
+  
+      <label for="pagoIntereses">Pago Intereses:</label>
+      <input id="pagoIntereses" formControlName="pagoIntereses" type="number" />
+  
+      <label for="pagoCapital">Pago Capital:</label>
+      <input id="pagoCapital" formControlName="pagoCapital" type="number" />
+  
+      <label for="totalPagado">Total Pagado:</label>
+      <input id="totalPagado" formControlName="totalPagado" type="number" />
+  
+      <div formGroupName="identificadorCredito">
+        <label for="ideCredito">ID Crédito:</label>
+        <input id="ideCredito" formControlName="ideCredito" type="text" />
+  
+        <label for="ideLineaCredito">ID Línea Crédito:</label>
+        <input id="ideLineaCredito" formControlName="ideLineaCredito" type="text" />
+      </div>
+  
+      <button type="submit">Guardar</button>
+      <button type="button" (click)="onDelete()">Eliminar</button>
+      <button type="button" (click)="onExport()">Exportar a Excel</button>
+      <input type="file" (change)="onImport($event)" />
+    </form>
+  </div>

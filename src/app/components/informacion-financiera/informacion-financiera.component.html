@@ -1,0 +1,89 @@
+<div class="container">
+  <form [formGroup]="informacionFinancieraForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="concepto">Concepto</label>
+      <input id="concepto" formControlName="concepto" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="moneda">Moneda</label>
+      <input id="moneda" type="number" formControlName="moneda" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="dato">Dato</label>
+      <input id="dato" type="number" formControlName="dato" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="reporte">Reporte</label>
+      <input id="reporte" type="number" formControlName="reporte" class="form-control" placeholder="Opcional" />
+    </div>
+
+    <div class="form-group">
+      <label for="tipoCartera">Tipo Cartera</label>
+      <input id="tipoCartera" type="number" formControlName="tipoCartera" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="tipoSaldo">Tipo Saldo</label>
+      <input id="tipoSaldo" type="number" formControlName="tipoSaldo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="tipoMovimiento">Tipo Movimiento</label>
+      <input id="tipoMovimiento" type="number" formControlName="tipoMovimiento" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="identificadorReporte">Identificador Reporte</label>
+      <input id="identificadorReporte" type="text" formControlName="identificadorReporte" class="form-control" placeholder="Opcional" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancelar</button>
+  </form>
+
+  <hr />
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Concepto</th>
+        <th>Moneda</th>
+        <th>Dato</th>
+        <th>Reporte</th>
+        <th>Tipo Cartera</th>
+        <th>Tipo Saldo</th>
+        <th>Tipo Movimiento</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of informacionFinancieras">
+        <td>{{ info.id }}</td>
+        <td>{{ info.concepto }}</td>
+        <td>{{ info.moneda }}</td>
+        <td>{{ info.dato }}</td>
+        <!-- Usa coalescencia nula para manejar undefined -->
+        <td>{{ info.reporte ?? 'N/A' }}</td>
+        <td>{{ info.tipoCartera }}</td>
+        <td>{{ info.tipoSaldo }}</td>
+        <td>{{ info.tipoMovimiento }}</td>
+        <td>{{ info.descripcion }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="onEdit(info)">Editar</button>
+          <!-- Usa coalescencia nula para manejar undefined -->
+          <button class="btn btn-danger" (click)="onDelete(info.id ?? 0)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

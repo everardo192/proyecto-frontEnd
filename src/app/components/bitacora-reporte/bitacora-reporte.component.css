@@ -1,0 +1,332 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  }
+  
+  .top-bar {
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ajustamos el espacio entre elementos */
+    background-color: #003366; /* Azul Marino */
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #D9D9D9; /* Gris Claro */
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no incremente el ancho */
+    z-index: 1000; /* Ajustamos el z-index para estar sobre el contenido */
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .company-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D9D9D9; /* Gris Claro */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .logo {
+      height: 30px;
+      margin-right: 5px;
+    }
+  
+    .company-name {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .top-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px; /* Ajuste del padding para dispositivos móviles */
+    }
+  
+    .left-section {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px; /* Espacio adicional inferior en dispositivos móviles */
+    }
+  
+    .logo {
+      height: 25px;
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+  
+    .company-name {
+      font-size: 18px;
+    }
+  }
+  
+  /* Slide Bar*/
+  
+  .sidebar {
+    position: fixed;
+    top: 60px; /* Ajustar según la altura de la barra superior */
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: #003366; /* Azul oscuro para todo el sidebar */
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    color: #fff; /* Color del texto en todo el sidebar */
+  }
+  
+  .user-profile {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #003366; /* Azul oscuro para el fondo del perfil de usuario */
+  }
+  
+  .user-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; /* Color del texto del botón de usuario */
+  }
+  
+  .user-icon img {
+    width: 80px; /* Ajustar según el tamaño del icono */
+    height: 80px; /* Ajustar según el tamaño del icono */
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    color: #fff; /* Color del nombre de usuario */
+  }
+  
+  .user-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #003366; /* Azul oscuro para el fondo del menú desplegable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .user-menu.show {
+    display: block;
+  }
+  
+  .user-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff; /* Color del texto en el menú desplegable */
+  }
+  
+  .user-menu a:hover {
+    background-color: #002244; /* Azul aún más oscuro para el fondo al pasar el ratón */
+  }
+  
+  .divider {
+    width: 80%;
+    margin: 10px auto;
+    border: 0.5px solid #004080; /* Azul oscuro más claro para la barra divisoria */
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .sidebar-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff; /* Color del texto en los botones del sidebar */
+    border: 1px solid transparent; /* Borde inicial transparente */
+    transition: border-color 0.3s ease; /* Transición para el cambio de color */
+  }
+  
+  .sidebar-menu li a:hover {
+    background-color: #002244; /* Azul aún más oscuro para el fondo al pasar el ratón */
+  }
+  
+  .sidebar-menu li a:active {
+    border-color: #0056b3; /* Azul más claro al hacer clic */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 200px; /* Ancho reducido del sidebar para dispositivos móviles */
+    }
+  
+    .user-icon img {
+      width: 60px; /* Ajuste del tamaño del icono para dispositivos móviles */
+      height: 60px; /* Ajuste del tamaño del icono para dispositivos móviles */
+    }
+  
+    .user-name {
+      font-size: 16px; /* Ajuste del tamaño del nombre de usuario para dispositivos móviles */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      width: 150px; /* Ancho aún más reducido del sidebar para dispositivos móviles pequeños */
+    }
+  
+    .user-icon img {
+      width: 50px; /* Ajuste más pequeño del tamaño del icono para dispositivos móviles pequeños */
+      height: 50px; /* Ajuste más pequeño del tamaño del icono para dispositivos móviles pequeños */
+    }
+  
+    .user-name {
+      font-size: 14px; /* Ajuste más pequeño del tamaño del nombre de usuario para dispositivos móviles pequeños */
+    }
+  }
+  
+    /* Aqui va el contenido del componente */
+/* Estilos generales para el contenido del componente */
+.bitacora-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin-left: 270px; /* Ajustar según el ancho del sidebar */
+  margin-top: 60px; /* Ajustar según la altura de la barra superior */
+  width: calc(100% - 270px); /* Ajustar el ancho para el espacio del sidebar */
+  background-color: #f4f4f4; /* Color de fondo similar al de la tabla */
+  margin-right: 20px; /* Margen derecho para que no quede pegado al borde de la página */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total del contenedor */
+}
+
+.bitacora-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.bitacora-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #003366; /* Azul marino similar al de la barra superior */
+}
+
+.bitacora-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #003366; /* Azul marino */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bitacora-filters label {
+  margin-right: 5px;
+  color: #fff;
+}
+
+.bitacora-filters input,
+.bitacora-filters select {
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.bitacora-filters input:focus,
+.bitacora-filters select:focus {
+  border-color: #003366; /* Azul marino */
+}
+
+.btn-search,
+.btn-add,
+.btn-view,
+.btn-edit,
+.btn-delete,
+.btn-export {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.btn-search {
+  background-color: #003366; /* Azul marino */
+}
+
+.btn-add {
+  background-color: #003366; /* Azul marino */
+}
+
+.btn-view {
+  background-color: #003366; /* Azul marino */
+}
+
+.btn-edit {
+  background-color: #003366; /* Azul marino */
+}
+
+.btn-delete {
+  background-color: #003366; /* Azul marino */
+}
+
+.btn-export {
+  background-color: #003366; /* Azul marino */
+}
+
+.bitacora-table-container {
+  overflow-x: auto;
+}
+
+.bitacora-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.bitacora-table th,
+.bitacora-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.bitacora-table th {
+  background-color: #003366; /* Azul marino */
+  color: #fff;
+}
+
+.bitacora-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}

@@ -1,0 +1,67 @@
+<!-- Este es la barra de navegacion -->
+<div class="top-bar">
+    <div class="left-section">
+      <img src="https://media.istockphoto.com/id/1267470630/es/vector/fast-coin-logo-dise%C3%B1a-el-vector-conceptual-la-plantilla-de-logotipo-fast-cash-los-dise%C3%B1os-de.jpg?s=612x612&w=0&k=20&c=jyZvfvEMLzt8EFdt4CPlJa0X8Ian6GzPg9Em7P_aRwM=" alt="Logo de LKS Baas Financiera" class="logo">
+      <span class="company-name">LKS Baas Financiera</span>
+    </div>
+  </div>
+  
+  <!-- Este es el slide bar -->
+  <div class="sidebar">
+    <div class="user-profile">
+      <div class="user-icon">
+        <img src="https://media.istockphoto.com/id/1300845620/es/vector/icono-de-usuario-plano-aislado-sobre-fondo-blanco-s%C3%ADmbolo-de-usuario-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=grBa1KTwfoWBOqu1n0ewyRXQnx59bNHtHjvbsFc82gk=" alt="Icono de usuario">
+      </div>
+      <div class="user-name">
+        Usuario
+      </div>
+      <hr class="divider">
+    </div>
+    <ul class="sidebar-menu">
+      <li><a routerLink="/generateReport">Generar Reporte Regulatorio</a></li>
+      <li><a routerLink="/bitacoraReport">Bitácora Reporte Regulatorio</a></li>
+      <li><a routerLink="/adminReporte">Alta, Baja Cambios a un Reporte Regulatorio</a></li>
+      <li><a routerLink="/usersModule">Usuarios del Módulo</a></li> <!-- Asumí que "/usersModule" es la ruta deseada -->
+    </ul>  
+  </div>
+  
+  <!-- Aqui va el contenido del componente -->
+<div class="content">
+  <h1>Generar Reporte Regulatorio</h1>
+  <p>Descarga el formato dando click en el siguiente botón:</p>
+  <button class="btn btn-primary">Descargar Formato</button>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Columna 1</th>
+        <th>Columna 2</th>
+        <th>Columna 3</th>
+        <th>Columna 4</th>
+        <th>Columna 5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dato 1</td>
+        <td>Dato 2</td>
+        <td>Dato 3</td>
+        <td>Dato 4</td>
+        <td>Dato 5</td>
+      </tr>
+      <tr>
+        <td>Dato 6</td>
+        <td>Dato 7</td>
+        <td>Dato 8</td>
+        <td>Dato 9</td>
+        <td>Dato 10</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="upload-section">
+    <p>Aquí puedes subir el reporte en formato PDF:</p>
+    <label class="btn-upload">
+      <input type="file" accept=".pdf" />
+      Subir Reporte
+    </label>
+  </div>
+</div>

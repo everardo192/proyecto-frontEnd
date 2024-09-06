@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Ubicación Geográfica y Actividad Económica</h2>
+  <form [formGroup]="ubicacionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="localidadDestino">Localidad Destino</label>
+      <input id="localidadDestino" formControlName="localidadDestino" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="municipioDestino">Municipio Destino</label>
+      <input id="municipioDestino" formControlName="municipioDestino" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="estadoDestino">Estado Destino</label>
+      <input id="estadoDestino" formControlName="estadoDestino" type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="actEconomicaDestino">Actividad Económica Destino</label>
+      <input id="actEconomicaDestino" formControlName="actEconomicaDestino" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="identificadorCredito">Identificador Crédito</label>
+      <input id="identificadorCredito" formControlName="identificadorCredito.ideCredito" type="number" placeholder="Ide Crédito" class="form-control" />
+      <input id="identificadorCredito" formControlName="identificadorCredito.ideLineaCredito" type="number" placeholder="Ide Línea Crédito" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+  
+  <hr />
+
+  <h3>Lista de Ubicaciones</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Localidad Destino</th>
+        <th>Municipio Destino</th>
+        <th>Estado Destino</th>
+        <th>Actividad Económica</th>
+        <th>Ide Crédito</th>
+        <th>Ide Línea Crédito</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ubicacion of ubicaciones">
+        <td>{{ ubicacion.localidadDestino }}</td>
+        <td>{{ ubicacion.municipioDestino }}</td>
+        <td>{{ ubicacion.estadoDestino }}</td>
+        <td>{{ ubicacion.actEconomicaDestino }}</td>
+        <td>{{ ubicacion.identificadorCredito?.ideCredito || 'N/A' }}</td>
+        <td>{{ ubicacion.identificadorCredito?.ideLineaCredito || 'N/A' }}</td>
+        <td>
+          <button (click)="onDelete(ubicacion.id!)" class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

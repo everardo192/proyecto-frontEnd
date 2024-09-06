@@ -1,0 +1,97 @@
+/* Estilo general para el contenedor principal */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  /* Estilo para el título principal */
+  .container h1 {
+    font-size: 28px;
+    color: #444;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilo para los botones */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 215px; /* Ancho del botón */
+    height: 85px; /* Alto del botón */
+    margin: 0; /* Elimina el margen para evitar espacios inesperados */
+  }
+  
+  /* Estilo específico para el botón "Guardar" */
+  .save-button {
+    background-color: #28a745; /* Verde para el botón "Guardar" */
+    width: 100px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+  }
+  
+/* Estilo para los botones en el formulario */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 botones por fila */
+    gap: 10px; /* Espacio entre botones */
+    margin-bottom: 30px; /* Espacio debajo de los botones */
+  }
+  
+  /* Alineación y ajuste de los botones en el contenedor */
+  .button-container button {
+    grid-column: span 1; /* Cada botón ocupa una columna */
+  }
+  
+  .button-container .save-button {
+    grid-column: span 4; /* Ocupa toda la fila si es necesario */
+  }
+  
+  
+  /* Estilo para los formularios */
+  form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para los encabezados dentro de los formularios */
+  form h3, form h4 {
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  /* Estilo para las etiquetas de los formularios */
+  form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  /* Estilo para los campos de entrada del formulario */
+  form input[type="text"] {
+    width: calc(100% - 22px); /* Ajusta el ancho considerando el padding y border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Estilo para los mensajes de error */
+  form .error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 6px;
+    display: block;
+  }
